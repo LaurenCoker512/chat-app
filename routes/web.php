@@ -24,6 +24,4 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Auth::routes();
-
 Route::resource('messages', MessageController::class);
