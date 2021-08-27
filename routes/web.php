@@ -24,4 +24,9 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('messages', MessageController::class);
+Route::view('/', 'chat')->middleware('auth');
+
+Route::resource('messages', MessageController::class)->only([
+    'index',
+    'store'
+]);

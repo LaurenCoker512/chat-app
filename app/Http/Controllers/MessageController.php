@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\MessageSentEvent;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -19,7 +20,7 @@ class MessageController extends Controller
 
     public function store(Request $request)
     {
-        $user = Auth::user();
+        $user = \Auth::user();
 
         $message = $user->messages()->create([
             'message' => $request->input('message')
